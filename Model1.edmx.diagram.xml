@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b9d8ab24d1f34e3d8df5ac43dbe59b60" Name="Diagram1">
+        <EntityTypeShape EntityType="adminEmpresaAguaModel.cliente" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="adminEmpresaAguaModel.estadoVenta" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="adminEmpresaAguaModel.stock" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="adminEmpresaAguaModel.sysdiagrams" Width="1.5" PointX="3.875" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="adminEmpresaAguaModel.venta" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="adminEmpresaAguaModel.datosTransferencia" Width="1.5" PointX="6.125" PointY="4" />
+        <EntityTypeShape EntityType="adminEmpresaAguaModel.comentario" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="adminEmpresaAguaModel.reclamo" Width="1.5" PointX="6.75" PointY="6.75" />
+        <EntityTypeShape EntityType="adminEmpresaAguaModel.sugerencia" Width="1.5" PointX="2.75" PointY="7.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

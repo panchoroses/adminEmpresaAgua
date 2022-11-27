@@ -1,0 +1,336 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="adminEmpresaAguaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="cliente">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="Nombre" Type="nchar" MaxLength="100" />
+          <Property Name="Apellido" Type="nchar" MaxLength="100" />
+          <Property Name="RUT" Type="nchar" MaxLength="100" />
+          <Property Name="Comuna" Type="nchar" MaxLength="100" />
+          <Property Name="Direccion" Type="nchar" MaxLength="100" />
+          <Property Name="Email" Type="nchar" MaxLength="100" />
+          <Property Name="Clave" Type="nchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="comentario">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="Nombre" Type="nchar" MaxLength="100" />
+          <Property Name="Apellido" Type="nchar" MaxLength="100" />
+          <Property Name="RUT" Type="nchar" MaxLength="100" />
+          <Property Name="Comentario" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="datosTransferencia">
+          <Key>
+            <PropertyRef Name="Rut" />
+          </Key>
+          <Property Name="Nombre" Type="nchar" MaxLength="100" />
+          <Property Name="Rut" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="NumeroDeCuenta" Type="nchar" MaxLength="100" />
+          <Property Name="Email" Type="nchar" MaxLength="100" />
+          <Property Name="NombreBanco" Type="nchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="estadoVenta">
+          <Key>
+            <PropertyRef Name="idCliente" />
+          </Key>
+          <Property Name="idCliente" Type="int" Nullable="false" />
+          <Property Name="EstadoVenta" Type="nchar" MaxLength="1000" />
+        </EntityType>
+        <EntityType Name="reclamo">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="Nombre" Type="nchar" MaxLength="100" />
+          <Property Name="Apellido" Type="nchar" MaxLength="100" />
+          <Property Name="RUT" Type="nchar" MaxLength="100" />
+          <Property Name="Reclamo" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="stock">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Producto" Type="nchar" MaxLength="10" />
+          <Property Name="CantidadDisponible" Type="nchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="sugerencia">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="nchar" MaxLength="100" Nullable="false" />
+          <Property Name="Nombre" Type="nchar" MaxLength="100" />
+          <Property Name="Apellido" Type="nchar" MaxLength="100" />
+          <Property Name="RUT" Type="nchar" MaxLength="100" />
+          <Property Name="Sugerencia" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="venta">
+          <Key>
+            <PropertyRef Name="idProducto" />
+          </Key>
+          <Property Name="Fecha" Type="nchar" MaxLength="100" />
+          <Property Name="idComprador" Type="nchar" MaxLength="100" />
+          <Property Name="MedioPago" Type="nchar" MaxLength="100" />
+          <Property Name="Producto" Type="nchar" MaxLength="100" />
+          <Property Name="idProducto" Type="nchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="adminEmpresaAguaModelStoreContainer">
+          <EntitySet Name="cliente" EntityType="Self.cliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="comentario" EntityType="Self.comentario" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="datosTransferencia" EntityType="Self.datosTransferencia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="estadoVenta" EntityType="Self.estadoVenta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="reclamo" EntityType="Self.reclamo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="stock" EntityType="Self.stock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sugerencia" EntityType="Self.sugerencia" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="venta" EntityType="Self.venta" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="adminEmpresaAguaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="cliente">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Apellido" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="RUT" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Comuna" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Direccion" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Clave" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="estadoVenta">
+          <Key>
+            <PropertyRef Name="idCliente" />
+          </Key>
+          <Property Name="idCliente" Type="Int32" Nullable="false" />
+          <Property Name="EstadoVenta1" Type="String" MaxLength="1000" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="stock">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Producto" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="CantidadDisponible" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="venta">
+          <Key>
+            <PropertyRef Name="idProducto" />
+          </Key>
+          <Property Name="Fecha" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="idComprador" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="MedioPago" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="idProducto" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="Producto" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityContainer Name="adminEmpresaAguaEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="cliente" EntityType="Self.cliente" />
+          <EntitySet Name="estadoVenta" EntityType="Self.estadoVenta" />
+          <EntitySet Name="stock" EntityType="Self.stock" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="venta" EntityType="Self.venta" />
+          <EntitySet Name="datosTransferencia" EntityType="adminEmpresaAguaModel.datosTransferencia" />
+          <EntitySet Name="comentario" EntityType="adminEmpresaAguaModel.comentario" />
+          <EntitySet Name="reclamo" EntityType="adminEmpresaAguaModel.reclamo" />
+          <EntitySet Name="sugerencia" EntityType="adminEmpresaAguaModel.sugerencia" />
+        </EntityContainer>
+        <EntityType Name="datosTransferencia">
+          <Key>
+            <PropertyRef Name="Rut" />
+          </Key>
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Rut" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="NumeroDeCuenta" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="NombreBanco" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="comentario">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Comentario" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Apellido" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="RUT" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="reclamo">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Reclamo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Apellido" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="RUT" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="sugerencia">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="String" Nullable="false" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Sugerencia" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="Apellido" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+          <Property Name="RUT" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="adminEmpresaAguaModelStoreContainer" CdmEntityContainer="adminEmpresaAguaEntities2">
+          <EntitySetMapping Name="cliente">
+            <EntityTypeMapping TypeName="adminEmpresaAguaModel.cliente">
+              <MappingFragment StoreEntitySet="cliente">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="RUT" ColumnName="RUT" />
+                <ScalarProperty Name="Comuna" ColumnName="Comuna" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estadoVenta">
+            <EntityTypeMapping TypeName="adminEmpresaAguaModel.estadoVenta">
+              <MappingFragment StoreEntitySet="estadoVenta">
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="EstadoVenta1" ColumnName="EstadoVenta" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="stock">
+            <EntityTypeMapping TypeName="adminEmpresaAguaModel.stock">
+              <MappingFragment StoreEntitySet="stock">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+                <ScalarProperty Name="CantidadDisponible" ColumnName="CantidadDisponible" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="adminEmpresaAguaModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="venta">
+            <EntityTypeMapping TypeName="adminEmpresaAguaModel.venta">
+              <MappingFragment StoreEntitySet="venta">
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="idComprador" ColumnName="idComprador" />
+                <ScalarProperty Name="MedioPago" ColumnName="MedioPago" />
+                <ScalarProperty Name="idProducto" ColumnName="idProducto" />
+                <ScalarProperty Name="Producto" ColumnName="Producto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="datosTransferencia">
+            <EntityTypeMapping TypeName="adminEmpresaAguaModel.datosTransferencia">
+              <MappingFragment StoreEntitySet="datosTransferencia">
+                <ScalarProperty Name="NombreBanco" ColumnName="NombreBanco" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="NumeroDeCuenta" ColumnName="NumeroDeCuenta" />
+                <ScalarProperty Name="Rut" ColumnName="Rut" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="comentario">
+            <EntityTypeMapping TypeName="adminEmpresaAguaModel.comentario">
+              <MappingFragment StoreEntitySet="comentario">
+                <ScalarProperty Name="RUT" ColumnName="RUT" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Comentario" ColumnName="Comentario" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="reclamo">
+            <EntityTypeMapping TypeName="adminEmpresaAguaModel.reclamo">
+              <MappingFragment StoreEntitySet="reclamo">
+                <ScalarProperty Name="RUT" ColumnName="RUT" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Reclamo" ColumnName="Reclamo" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sugerencia">
+            <EntityTypeMapping TypeName="adminEmpresaAguaModel.sugerencia">
+              <MappingFragment StoreEntitySet="sugerencia">
+                <ScalarProperty Name="RUT" ColumnName="RUT" />
+                <ScalarProperty Name="Apellido" ColumnName="Apellido" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Sugerencia" ColumnName="Sugerencia" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
